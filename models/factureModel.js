@@ -1,17 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const factureSchema = new mongoose.Schema({
   numeroConsultation: {
     type: String,
-    required: true
+    required: true,
   },
   numeroFacture: {
     type: String,
-    required: true
+    required: true,
   },
-  facture: { type: String }
+  facture: { type: String },
+  dateOfCreation: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const facture = mongoose.model('facture', factureSchema);
+const facture = mongoose.model("facture", factureSchema);
 
 module.exports = facture;

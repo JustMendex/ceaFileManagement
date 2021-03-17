@@ -1,18 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const commandeSchema = new mongoose.Schema({
   numeroConsultation: {
     type: String,
-    required: true
+    required: true,
   },
   numeroCommande: {
     type: String,
-    required: true
+    required: true,
   },
   bonCommande: { type: String },
-  pvReception: { type: String }
+  pvReception: { type: String },
+  dateOfCreation: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const commande = mongoose.model('commande', commandeSchema);
+const commande = mongoose.model("commande", commandeSchema);
 
 module.exports = commande;
